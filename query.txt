@@ -1,0 +1,29 @@
+1. Find all the students who were enrolled in both DM and ADA
+
+SELECT DISTINCT(roll), name
+FROM student_infos
+where roll IN 
+(SELECT roll FROM student_infos WHERE course='DM')
+AND roll IN
+(SELECT roll from student_infos WHERE course='ADA');
+
+SELECT 
+SUM(po1), SUM(po2), SUM(po3), SUM(po4), SUM(po5), SUM(po6), 
+SUM(po7), SUM(po8), SUM(po9), SUM(po10), SUM(po11), SUM(po12)
+FROM student_infos
+WHERE roll='2103910202128';
+
+select 
+SUM(po1), SUM(po2), sum(po3), SUM(po4), SUM(po5), SUM(po6), 
+SUM(po7), SUM(po8), SUM(po9), SUM(po10), SUM(po11), SUM(po12) 
+from session_course_pos 
+where course in ('DM', 'ADA');
+
+
+** Batch 37
+SELECT DISTINCT(roll), name
+FROM student_infos
+where roll IN 
+(SELECT roll FROM student_infos WHERE course='CN')
+AND roll IN
+(SELECT roll from student_infos WHERE course='SD');

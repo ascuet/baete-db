@@ -1,0 +1,6 @@
+create table student_info(
+    student_id varchar(20),
+    name varchar(30),
+    course varchar(30),
+    
+);
