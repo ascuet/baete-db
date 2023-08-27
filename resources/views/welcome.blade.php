@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laravel 8 Import Export Excel to database Example - ItSolutionStuff.com</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-</head>
-<body>
-   
-<div class="container">
-    <div class="card bg-light mt-3">
-        <div class="card-header">
-            Laravel Excel File Upload
-        </div>
-        <div class="card-body">
-            <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <input type="file" name="file" class="form-control">
-                <br>
-                <button class="btn btn-success">Import User Data</button>
-                <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
-            </form>
-        </div>
+@extends('layout.default')
+@section('content')
+<div class="card bg-light mt-3">
+    <div class="card-header">
+        Upload PO Excel File
+    </div>
+    <div class="card-body">
+        <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" class="form-control">
+            <br>
+            <button class="btn btn-success">Import Data</button>
+            <!-- <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a> -->
+        </form>
     </div>
 </div>
-   
-</body>
-</html>
+@endsection

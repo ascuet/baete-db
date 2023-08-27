@@ -7,6 +7,8 @@ use App\Http\Controllers\CalculationForBatch38;
 use App\Http\Controllers\CalculationForBatch39;
 use App\Http\Controllers\CalculationForBatch40;
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,18 @@ use App\Http\Controllers\ChartController;
 // });
 
 Route::get('/', [ExcelController::class, 'welcome']);
+Route::get('/dashboard', function(){
+    return view('page.dashboard');
+});
+Route::get('course/create', [CourseController::class, 'create']);
+Route::post('course/store-excel', [CourseController::class, 'storeExcel']);
+
+Route::get('student/create', [StudentController::class, 'create']);
+Route::post('student/store-excel', [StudentController::class, 'storeExcel']);
+
+Route::get('student/batches',[StudentController::class, 'allBatches']);
+Route::get('student/all/{batch}',[StudentController::class, 'batchStudents']);
+
 Route::get('export', [ExcelController::class, 'export'])->name('export');
 Route::post('import', [ExcelController::class, 'import'])->name('import');
 
