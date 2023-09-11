@@ -54,11 +54,11 @@ class CalculationController extends Controller
 
             [$pos_total, $count_po] = $this->calcluateTotalPO(); 
             
-            if($roll=="1903710201824" && $name=="Ruma Dhar"){
-                echo $name;
-                echo '<pre>';
-                print_r($pos_total);
-            }
+            // if($roll=="1903710201824" && $name=="Ruma Dhar"){
+            //     echo $name;
+            //     echo '<pre>';
+            //     print_r($pos_total);
+            // }
             
 
             

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('type')->nullable();
             $table->string('credit')->nullable();
             $table->integer('semester')->nullable();
+            $table->boolean('is_dominant')->default(False);
             $table->unsignedBigInteger('department_id')->nullable();
             $table->foreign('department_id')->references('id')->on('departments');
             $table->timestamps();

@@ -30,6 +30,7 @@ Route::get('/dashboard', function(){
 });
 Route::get('course/create', [CourseController::class, 'create']);
 Route::post('course/store-excel', [CourseController::class, 'storeExcel']);
+Route::get('course/all', [CourseController::class, 'all']);
 
 Route::get('student/create', [StudentController::class, 'create']);
 Route::post('student/store-excel', [StudentController::class, 'storeExcel']);
@@ -45,5 +46,5 @@ Route::get('calculate-39', [CalculationForBatch39::class, 'getData']);
 
 Route::get('calculate-40', [CalculationForBatch40::class, 'getData']);
 
-Route::get('calculate', [CalculationController::class, 'getData']);
+Route::get('calculate-37', [CalculationController::class, 'getData']);
 Route::get('chart/{roll}/{po1}/{po2}/{po3}/{po4}/{po5}/{po6}/{po7}/{po8}/{po9}/{po10}/{po11}/{po12}',[ChartController::class, 'chart']);

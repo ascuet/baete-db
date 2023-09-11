@@ -121,6 +121,6 @@ class ExcelController extends Controller
                 ]);
             } 
         }
-        
+    return redirect('/');    
     }
 }

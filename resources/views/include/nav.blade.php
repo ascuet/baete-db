@@ -21,16 +21,27 @@
                     </a>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ url("course/create") }}">Create</a>
-                    <a class="dropdown-item" href="#">All</a>
+                    <a class="dropdown-item" href="{{ url("course/all") }}">All</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    Student
+                    Batch Students
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="{{ url("student/create") }}">Create</a>
                         <a class="dropdown-item" href="{{ url("student/batches") }}">All Batches</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                     PO Attainment
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ url("calculate-37") }}">Batch 37</a>
+                        <a class="dropdown-item" href="{{ url("calculate-38") }}">Batch 38</a>
+                        <a class="dropdown-item" href="{{ url("calculate-39") }}">Batch 39</a>
+                        <a class="dropdown-item" href="{{ url("calculate-40") }}">Batch 40</a>
                     </div>
                 </li>
 

@@ -12,8 +12,10 @@ class CourseController extends Controller
     public function create(){
         return view('page.course.create');
     }
-    public function store(Request $request){
-
+    public function all(){
+        $department = 1;
+        $courses = DB::table('courses')->where('department_id','=',$department)->get();
+        return view('page.course.all', compact('courses'));
     }
     public function storeExcel(Request $request){
         $data = Excel::toArray([],request()->file('courses'));
@@ -37,6 +39,11 @@ class CourseController extends Controller
             $credit = Str::substr($title_credit, $pos+1, $pos_end-1);
             $credit = Str::replace(')', '', $credit);
             $department_id = 1;
+            // find if dominant
+            $is_dominant = false;
+            if($course_data[$i][1]=="TRUE"){
+                $is_dominant = true;
+            }
             DB::table('courses')->insert([
                 'name'=>$title,
                 'code'=>$code,
@@ -44,9 +51,11 @@ class CourseController extends Controller
                 'version'=>$version,
                 'department_id'=>$department_id,
                 'created_at'=>now(),
-                'updated_at'=>now()
+                'updated_at'=>now(),
+                'is_dominant'=>$is_dominant
             ]);
-            return redirect("course/create");
+            
         }
+        return redirect("course/create");
     }
 }

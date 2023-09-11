@@ -16,6 +16,8 @@ class CalculationForBatch39 extends Controller
             AND roll IN
             (SELECT roll from student_infos WHERE course='ADAL' AND semester='Fall' AND year='2022')
             ");
+
+            // dd($results);
     
             $students_info = [];
             $student_info = [];
@@ -23,10 +25,14 @@ class CalculationForBatch39 extends Controller
             foreach($results as $r){
                 $roll = $r->roll;
                 $name = $this->findName($roll);
+
+                // dd($name);
     
                 $pos_student = $this->calculatePO($roll);
     
                 [$pos_total, $count_po] = $this->calcluateTotalPO();  
+
+                dd($pos_total);
     
                 
                 $student_info = array(
@@ -111,6 +117,8 @@ class CalculationForBatch39 extends Controller
             if($pos_total[0]->tot_po10 > 0){ $count_po += 2;}
             if($pos_total[0]->tot_po11 > 0){ $count_po += 2;}
             if($pos_total[0]->tot_po12 > 0){ $count_po += 2;}
+
+            
     
             return [$pos_total, $count_po];
         }
