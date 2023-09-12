@@ -86,9 +86,9 @@ class CalculationController extends Controller
 
             array_push($students_info, $student_info);
 
-            if($roll=="1903710201824" && $name=="Ruma Dhar"){
-                dd($student_info);
-            }
+            // if($roll=="1903710201824" && $name=="Ruma Dhar"){
+            //     dd($student_info);
+            // }
         }
         
         return view('data', compact('students_info', 'pos_total', 'count_po'));

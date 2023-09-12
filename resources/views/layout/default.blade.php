@@ -2,6 +2,7 @@
 <html>
 <head>
     @include('include.head')
+    @yield('table_style')
 </head>
 <body>
    
@@ -10,6 +11,7 @@
     @yield('content')
     
 </div>
-   
+
+@yield('scripts')
 </body>
 </html>

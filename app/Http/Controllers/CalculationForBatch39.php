@@ -32,7 +32,7 @@ class CalculationForBatch39 extends Controller
     
                 [$pos_total, $count_po] = $this->calcluateTotalPO();  
 
-                dd($pos_total);
+                // dd($pos_total);
     
                 
                 $student_info = array(
