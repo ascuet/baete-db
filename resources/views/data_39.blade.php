@@ -6,6 +6,8 @@
                 <h4>Batch 39</h4>
                 <p>Fall 2021 (DM)</p>
                 <p>Fall 2022 (ADA, ADAL) </p>
+                <p>Spring 2023 (MM, MML, SEISD, SEISDL)</p>
+                <p>Fall 2023 (AI, AIL, SD, CN, CNL) </p>
                 <table class="table table-striped display" id="MyTable">
                     <thead>
                         <th>Roll</th>

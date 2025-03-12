@@ -15,8 +15,18 @@ class CalculationForBatch40 extends Controller
             (SELECT roll from student_infos WHERE course='SP' AND semester='Spring' AND year='2022')
             AND roll IN
             (SELECT roll from student_infos WHERE course='SPL' AND semester='Spring' AND year='2022')
-            -- AND roll IN
-            -- (SELECT roll from student_infos WHERE course='SPL' AND semester='Spring' AND year='2022')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='ADA' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='ADAL' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='MM' AND semester='Fall' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='MML' AND semester='Fall' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='SEISD' AND semester='Fall' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='SEISDL' AND semester='Fall' AND year='2023')
             ");
     
             $students_info = [];
@@ -73,6 +83,12 @@ class CalculationForBatch40 extends Controller
                            (course='DM' and semester='Spring' and year='2022')
                         OR (course='SP' and semester='Spring' and year='2022')
                         OR (course='SPL' and semester='Spring' and year='2022')
+                        OR (course='ADA' and semester='Spring' and year='2023')
+                        OR (course='ADAL' and semester='Spring' and year='2023')
+                        OR (course='MM' and semester='Fall' and year='2023')
+                        OR (course='MML' and semester='Fall' and year='2023')
+                        OR (course='SEISD' and semester='Fall' and year='2023')
+                        OR (course='SEISDL' and semester='Fall' and year='2023')
                     )");
             
             return $pos_student;
@@ -91,6 +107,12 @@ class CalculationForBatch40 extends Controller
                 (course='DM' AND semester='Spring' AND year='2022')
                 OR (course='SP' AND semester='Spring' AND year='2022')
                 OR (course='SPL' AND semester='Spring' AND year='2022')
+                OR (course='ADA' AND semester='Spring' AND year='2023')
+                OR (course='ADAL' AND semester='Spring' AND year='2023')
+                OR (course='MM' AND semester='Fall' AND year='2023')
+                OR (course='MML' AND semester='Fall' AND year='2023')
+                OR (course='SEISD' AND semester='Fall' AND year='2023')
+                OR (course='SEISDL' AND semester='Fall' AND year='2023')
                 ");
             
             $count_po = 0;

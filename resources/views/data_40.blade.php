@@ -5,6 +5,8 @@
             <div class="col-md-12">
                 <h4>Batch 40</h4>
                 <p>Spring 2022 (DM, SP, SPL)</p>
+                <p>Spring 2023 (ADA, ADAL)</p>
+                <p>Fall 2023 (MM, MML, SEISD, SEISDL)</p>
                 <table class="table table-striped display" id="MyTable">
                     <thead>
                         <th>Roll</th>

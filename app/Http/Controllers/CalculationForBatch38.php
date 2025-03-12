@@ -10,6 +10,16 @@ class CalculationForBatch38 extends Controller
         $results = DB::select("SELECT DISTINCT(roll)
             FROM student_infos
             where roll IN 
+            (SELECT roll FROM student_infos WHERE course='CN' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='CNL' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='SD' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='AI' AND semester='Spring' AND year='2023')
+            AND roll IN
+            (SELECT roll from student_infos WHERE course='AIL' AND semester='Spring' AND year='2023')
+            AND roll IN
             (SELECT roll from student_infos WHERE course='ADA' AND semester='Spring' AND year='2022')
             AND roll IN
             (SELECT roll from student_infos WHERE course='MM' AND semester='Fall' AND year='2022')
@@ -29,6 +39,8 @@ class CalculationForBatch38 extends Controller
                 $name = $this->findName($roll);
     
                 $pos_student = $this->calculatePO($roll);
+                $pos_total = 0;
+                $count_po = 0;
     
                 [$pos_total, $count_po] = $this->calcluateTotalPO();  
 
@@ -68,6 +80,8 @@ class CalculationForBatch38 extends Controller
             }
             
             return view('data_38', compact('students_info', 'pos_total', 'count_po'));
+            //return view('data_38', compact('students_info') + (isset($pos_total) ? compact('pos_total') : []) + compact('count_po'));
+            //return view('data_38', ['students_info' => $students_info,'pos_total' => $pos_total ?? 0, 'count_po' => $count_po ?? 0]);
         }
     
         // Calculate sum of each PO for a specific student
@@ -85,7 +99,8 @@ class CalculationForBatch38 extends Controller
                         OR (course='MM' and semester='Fall' and year='2022')
                         OR (course='MML' and semester='Fall' and year='2022')
                         OR (course='SEISD' and semester='Fall' and year='2022')
-                        OR (course='SEISDL' and semester='Fall' and year='2022')
+                        OR (course='AI' and semester='Spring' and year='2023')
+                        OR (course='AIL' and semester='Spring' and year='2023')
                     )");
             
             return $pos_student;
@@ -101,7 +116,8 @@ class CalculationForBatch38 extends Controller
             //     from session_course_pos 
             //     where course in ('DM', 'ADA', 'ADAL')");
     
-            // Batch 37
+            // Batch 38
+            
             $pos_total = DB::select("SELECT 
                 SUM(po1) as tot_po1, SUM(po2) as tot_po2, sum(po3) as tot_po3, 
                 SUM(po4) as tot_po4, SUM(po5) as tot_po5, SUM(po6) as tot_po6, 
@@ -113,6 +129,8 @@ class CalculationForBatch38 extends Controller
                 OR (course='MML' AND semester='Fall' AND year='2022')
                 OR (course='SEISD' AND semester='Fall' AND year='2022')
                 OR (course='SEISDL' AND semester='Fall' AND year='2022')
+                OR (course='AI' AND semester='Spring' AND year='2023')
+                OR (course='AIL' AND semester='Spring' AND year='2023')
                 ");
             
             $count_po = 0;
